@@ -579,16 +579,20 @@ h1 {
     border-radius: 5px;
 }
 
-.contact-form button {
-    margin-top: 15px;
-    background-color: #333;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1000px;
+    background: #8B4513;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white; 
 }
+
 
 .contact-form button:hover {
     background-color: #ffcc00;
