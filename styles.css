@@ -171,6 +171,12 @@ nav a:hover{
     }
 }
 
+.video-content a:hover{
+    background: #fff;
+    color: black;
+
+}
+
 .bg-video{
     position: absolute;
     right: 0;
