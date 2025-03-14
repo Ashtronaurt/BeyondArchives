@@ -172,8 +172,8 @@ nav a:hover{
 }
 
 .video-content a:hover{
-    background: #fff;
-    color: black;
+    background: #fff !important;
+    color: black !important;
 
 }
 
