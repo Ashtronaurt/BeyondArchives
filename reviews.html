@@ -48,7 +48,6 @@
     <button type="submit">Submit</button>
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 <script>
     $(function(){
         $(".toggle").on("click", function(){
@@ -59,8 +58,28 @@
                 $(".menu").addClass("active");
                 $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
             }
-        })
-    })
+        });
+    });
+
+   
+    document.getElementById("review-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let name = document.getElementById("name").value;
+        let reviewText = document.getElementById("review").value;
+
+        if (name && reviewText) {
+            let reviewContainer = document.getElementById("reviews-container");
+            let newReview = document.createElement("div");
+            newReview.classList.add("review");
+            newReview.innerHTML = `<h3>${name}</h3><p>"${reviewText}"</p>`;
+            reviewContainer.appendChild(newReview);
+
+            
+            document.getElementById("name").value = "";
+            document.getElementById("review").value = "";
+        }
+    });
 </script>
 
 </body>
