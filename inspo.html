@@ -1,50 +1,138 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Archives</title>
+    <title>Styling Inspirations | Beyond Archives</title>
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-
 <body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
+        </div>
+        <div class="toggle">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="collection.html">Collections</a></li>
+            <li><a href="inspo.html">Styling Inspirations</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="promotions.html">Promotions</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
 
-<nav>
-    <div class="logo">
-        <a href = "index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
+    <section class="image-banner">
+        <div class="banner-overlay">
+            <h1>Style Inspirations</h1>
+        </div>
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070" alt="Style Banner">
+    </section>
+
+    <div class="style-categories">
+        <div class="category">
+            <h2>Seasonal Trends</h2>
+            <div class="style-grid">
+                <div class="style-card">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070" alt="Spring Fashion">
+                    <h3>Spring Essentials</h3>
+                    <p>Light layers and fresh colors for the perfect spring transition</p>
+                </div>
+                <div class="style-card">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?q=80&w=2070" alt="Summer Style">
+                    <h3>Summer Vibes</h3>
+                    <p>Breezy fabrics and bold patterns for hot summer days</p>
+                </div>
+                <div class="style-card">
+                    <img src="https://images.unsplash.com/photo-1550614000-4895a10e1bfd?q=80&w=2070" alt="Autumn Look">
+                    <h3>Autumn Layers</h3>
+                    <p>Cozy knits and rich textures for fall weather</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="style-tips">
+            <h2>Styling Tips</h2>
+            <div class="tips-container">
+                <div class="tip">
+                    <i class="fas fa-tshirt"></i>
+                    <h3>Color Coordination</h3>
+                    <p>Learn to mix and match colors like a pro</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-ruler"></i>
+                    <h3>Proportion Play</h3>
+                    <p>Balance your outfits with proper proportions</p>
+                </div>
+                <div class="tip">
+                    <i class="fas fa-shoe-prints"></i>
+                    <h3>Accessorizing</h3>
+                    <p>Elevate your look with the right accessories</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="toggle">
-        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
-    </div>
-    <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="collection.html">Collections</a></li>
-        <li><a href="inspo.html">Styling Inspirations</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="promotions.html">Promotions</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-</nav>
 
-<h1>INSPO</h1>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Beyond Archives</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="collection.html">Our Collections</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Style Guide</h4>
+                <ul>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">Style Tips</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<script>
-    $(function(){
-        $(".toggle").on("click", function(){
-            if($(".menu").hasClass("active")){
-                $(".menu").removeClass("active");
-                $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
-            } else {
-                $(".menu").addClass("active");
-                $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
-            }
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(".toggle").on("click", function(){
+                if($(".menu").hasClass("active")){
+                    $(".menu").removeClass("active");
+                    $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
+                } else {
+                    $(".menu").addClass("active");
+                    $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
+                }
+            })
         })
-    })
-</script>
-
+    </script>
 </body>
 </html>
