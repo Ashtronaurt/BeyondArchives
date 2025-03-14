@@ -505,7 +505,7 @@ h1, h2 {
 
 
 body {
-    font-family: Arial, Helvetica;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f8f8f8;
@@ -579,7 +579,6 @@ nav .menu li a:hover {
     }
 }
 
-/* Contact Page */
 h1 {
     text-align: center;
     margin-top: 20px;
