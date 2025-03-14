@@ -2,9 +2,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Archives</title>
+    <title>Promotions | Beyond Archives</title>
     <link rel="stylesheet" href="promostyle.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        .style-categories {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category {
+    margin-bottom: 60px;
+}
+
+.category h2 {
+    font-size: 2.5em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Gilda Display', serif;
+}
+
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.style-card {
+    background: rgb(230, 224, 217);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.style-card:hover {
+    transform: translateY(-10px);
+}
+
+.style-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.style-card h3 {
+    padding: 20px 20px 10px;
+    font-size: 1.4em;
+    color: rgb(50, 63, 47);
+}
+
+.style-card p {
+    padding: 0 20px 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.style-tips {
+    margin-top: 60px;
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tip {
+    text-align: center;
+    padding: 30px;
+    background: rgb(230, 224, 217);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.tip:hover {
+    transform: translateY(-5px);
+}
+
+.tip i {
+    font-size: 2.5em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 20px;
+}
+
+.tip h3 {
+    font-size: 1.3em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 15px;
+}
+
+.tip p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ------------------------------ Footer Styles -------------------------------*/
+.footer {
+    background-color: rgb(50, 63, 47);
+    padding: 70px 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    padding: 0 20px;
+}
+
+.footer-col h4 {
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    font-family: 'Gilda Display', serif;
+}
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    background-color: rgb(230, 224, 217);
+    height: 2px;
+    width: 50px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    font-size: 16px;
+    color: #bbbbbb;
+    text-decoration: none;
+    font-weight: 300;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 8px;
+}
+
+.footer-col .social-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-col .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 40px;
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    color: #ffffff;
+    transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+    color: rgb(50, 63, 47);
+    background-color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .footer-col {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .footer-col h4::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .footer-col .social-links {
+        justify-content: center;
+    }
+}
+    </style>
 </head>
 
 <body>
@@ -87,7 +283,46 @@
     </article>
 </section>
 
-
+<footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Beyond Archives</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="collection.html">Our Collections</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Style Guide</h4>
+                <ul>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">Style Tips</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+ </footer>
 
 
 
