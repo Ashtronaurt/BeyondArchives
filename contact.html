@@ -40,9 +40,8 @@
         </ul>
         <h3>Follow Us</h3>
         <div class="social-icons">
-            <a href="https://www.facebook.com/beyondarchivesph"><ion-icon name="logo-facebook"></ion-icon></a>
-            <a href="https://www.instagram.com/beyond__archives/"><ion-icon name="logo-instagram"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
+            <a href="https://www.facebook.com/beyondarchivesph" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="https://www.instagram.com/beyond__archives/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
         </div>
     </div>
 
@@ -61,7 +60,6 @@
             <button type="submit">Send</button>
         </form>
     </div> 
-
 </div> 
 
 <div class="map-container">
@@ -69,7 +67,7 @@
     <div id="map"></div>
 </div> 
 
-
+<!-- Google Maps Script (Replace YOUR_API_KEY with an actual API Key) -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -87,7 +85,6 @@
         });
     });
 
-    
     function initMap() {
         const location = { lat: 14.2815, lng: 121.4163 }; // Update with your real location
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -97,7 +94,6 @@
         new google.maps.Marker({ position: location, map: map });
     }
 
-    
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
         alert("Your message has been sent!");
