@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Beyond Archives</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap');
+
         *{
             margin: 0;
             padding: 0;
@@ -114,7 +115,7 @@
         /* -------------------------------- Navigation Bar -------------------------------- */
         
         .hero {
-            height: 80vh;
+            height: 95vh;
             position: relative;
             background-image: url('manyshirts.jpg');
             background-size: cover;
@@ -144,7 +145,6 @@
         .hero-title {
             font-size: 100px;
             font-weight: 300;
-            text-transform: lowercase;
             letter-spacing: 2px;
             color: #f5f5f5;
             margin-bottom: 30px;
@@ -183,6 +183,8 @@
             background: #111;
             overflow: hidden;
             transition: transform 0.3s;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         
         .blog-post:hover {
@@ -318,9 +320,10 @@
         
         .featured-excerpt {
             margin-bottom: 30px;
-            color: #aaa;
+            color: #010101;
             font-size: 16px;
             line-height: 1.8;
+            text-align: justify;
         }
         
         .featured-button {
@@ -432,7 +435,7 @@
 <body>
     <nav>
         <div class="logo">
-            <a href="index.html"><img src="manyshirts.jpg" alt="Beyond Archives Logo"></a>
+            <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
         </div>
         <div class="toggle">
             <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
@@ -445,14 +448,13 @@
             <li><a href="reviews.html">Reviews</a></li>
             <li><a href="contact.html">Contact Us</a></li>
             <li><a href="promotions.html">Promotions</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
     </nav>
     
     <div class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">beyond archives</h1>
-            <a href="#blog" class="hero-button">Read Our Blog</a>
+            <h1 class="hero-title">Our Blog</h1>
         </div>
     </div>
     
@@ -484,7 +486,7 @@
                         <span><ion-icon name="calendar-outline"></ion-icon> March 10, 2025</span>
                         <span><ion-icon name="bookmark-outline"></ion-icon> Archive</span>
                     </div>
-                    <h2>Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
+                    <h2 style="color: white;">Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
                     <div class="blog-excerpt">
                         <p>Nestled in the heart of Nuvali, Laguna, Beyond Archives is a haven for vintage fashion enthusiasts and streetwear aficionados alike. This curated store offers a diverse selection of rare and iconic pieces that cater to discerning tastes.</p>
                     </div>
@@ -494,14 +496,14 @@
             
             <article class="blog-post">
                 <div class="blog-image">
-                    <img src="/api/placeholder/400/250" alt="Designer Interview">
+                    <img src="collection.jpg" alt="Designer Interview">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">
                         <span><ion-icon name="calendar-outline"></ion-icon> March 5, 2025</span>
                         <span><ion-icon name="bookmark-outline"></ion-icon> Interviews</span>
                     </div>
-                    <h2>In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
+                    <h2 style="color: white;">In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
                     <div class="blog-excerpt">
                         <p>We visit the workspace of one of streetwear's most promising talents to discuss his unconventional approach to upcycling vintage workwear and his vision for a more sustainable fashion ecosystem.</p>
                     </div>
@@ -518,16 +520,30 @@
                         <span><ion-icon name="calendar-outline"></ion-icon> February 28, 2025</span>
                         <span><ion-icon name="bookmark-outline"></ion-icon> Collections</span>
                     </div>
-                    <h2>Collectible Culture: How Limited Editions Are Evolving</h2>
+                    <h2 style="color: white;">Collectible Culture: How Limited Editions Are Evolving</h2>
                     <div class="blog-excerpt">
                         <p>The concept of scarcity in fashion is changing rapidly. We examine how digital authentication, community ownership models, and evolving drop strategies are reshaping what it means to own a piece of fashion history.</p>
                     </div>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </article>
-            
-            <article class="blog-post">
-                <div class="blog-image">
-                    <img src="/api/placeholder/400/250" alt="Art Installation">
-                </div>
-                <div class="blog-content
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+            $(".toggle").on("click", function(){
+                if($(".menu").hasClass("active")){
+                    $(".menu").removeClass("active");
+                    $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
+                } else {
+                    $(".menu").addClass("active");
+                    $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
+                }
+            })
+        })
+    </script>
+</body>
+</html>            
