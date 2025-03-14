@@ -15,8 +15,8 @@
         }
         
         body {
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #000;
+            color: #fff;
             line-height: 1.6;
         }
         
@@ -24,16 +24,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 5%;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
+            padding: 20px 5%;
+            background-color: #f5f5f5;
+            position: relative;
             z-index: 1000;
         }
         
         .logo img {
-            height: 50px;
+            height: 30px;
         }
         
         .menu {
@@ -42,74 +40,106 @@
         }
         
         .menu li {
-            margin-left: 1.5rem;
+            margin-left: 30px;
         }
         
         .menu a {
             text-decoration: none;
             color: #333;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 400;
             transition: color 0.3s;
         }
         
-        .menu a:hover {
-            color: #8a2be2;
+        .menu a:hover, .menu a.active {
+            color: #777;
         }
         
         .toggle {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: #333;
         }
         
-        .page-header {
+        .hero {
+            height: 80vh;
+            position: relative;
+            background-image: url('manyshirts.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            padding: 3rem 0;
-            background-color: #8a2be2;
-            color: white;
         }
         
-        .page-header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .hero-title {
+            font-size: 100px;
+            font-weight: 300;
+            text-transform: lowercase;
+            letter-spacing: 2px;
+            color: #f5f5f5;
+            margin-bottom: 30px;
         }
         
-        .blog-intro {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            text-align: center;
+        .hero-button {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 2px solid #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 400;
+            transition: all 0.3s;
+        }
+        
+        .hero-button:hover {
+            background: #fff;
+            color: #000;
         }
         
         .blog-container {
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+            margin: 80px auto;
+            padding: 0 20px;
         }
         
-        .blog-main {
+        .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
         }
         
         .blog-post {
-            background: white;
-            border-radius: 8px;
+            background: #111;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             transition: transform 0.3s;
         }
         
         .blog-post:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
         }
         
         .blog-image {
-            height: 220px;
+            height: 250px;
             overflow: hidden;
         }
         
@@ -125,153 +155,92 @@
         }
         
         .blog-content {
-            padding: 1.5rem;
+            padding: 30px;
         }
         
         .blog-content h2 {
-            margin-bottom: 0.5rem;
-            font-size: 1.5rem;
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+        
+        .blog-post:hover .blog-content h2 {
+            color: #aaa;
         }
         
         .blog-meta {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 1rem;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta span {
+            margin-right: 20px;
             display: flex;
             align-items: center;
         }
         
         .blog-meta ion-icon {
-            margin-right: 0.3rem;
-        }
-        
-        .blog-meta span {
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
+            margin-right: 5px;
         }
         
         .blog-excerpt {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
+            color: #aaa;
+            font-size: 15px;
+            line-height: 1.7;
         }
         
         .read-more {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: #8a2be2;
-            color: white;
+            padding: 10px 0;
+            color: #fff;
             text-decoration: none;
-            border-radius: 4px;
-            font-weight: 500;
-            transition: background 0.3s;
+            font-size: 14px;
+            font-weight: 400;
+            position: relative;
         }
         
-        .read-more:hover {
-            background: #7126bd;
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: #fff;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s;
         }
         
-        .sidebar {
-            grid-column: span 1;
+        .blog-post:hover .read-more::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
         
-        .sidebar-widget {
-            background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .sidebar-widget h3 {
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid #8a2be2;
-        }
-        
-        .sidebar-widget ul {
-            list-style: none;
-        }
-        
-        .sidebar-widget ul li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .sidebar-widget ul li:last-child {
-            border-bottom: none;
-        }
-        
-        .sidebar-widget ul li a {
-            text-decoration: none;
-            color: #333;
-            transition: color 0.3s;
-        }
-        
-        .sidebar-widget ul li a:hover {
-            color: #8a2be2;
-        }
-        
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-        
-        .tag {
-            background: #f0f0f0;
-            padding: 0.3rem 0.6rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            text-decoration: none;
-            color: #333;
-            transition: background 0.3s;
-        }
-        
-        .tag:hover {
-            background: #e0e0e0;
-        }
-        
-        .newsletter-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .newsletter-form input {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        
-        .newsletter-form button {
-            padding: 0.8rem;
-            background: #8a2be2;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .newsletter-form button:hover {
-            background: #7126bd;
+        .section-title {
+            font-size: 34px;
+            font-weight: 300;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .featured-post {
-            position: relative;
-            height: 400px;
-            grid-column: 1 / -1;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
         }
         
         .featured-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            height: 500px;
+            overflow: hidden;
         }
         
         .featured-image img {
@@ -280,126 +249,97 @@
             object-fit: cover;
         }
         
-        .featured-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 2rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-            color: white;
+        .featured-content {
+            padding: 30px;
         }
         
-        .featured-overlay h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        .featured-content h2 {
+            font-size: 34px;
+            font-weight: 300;
+            margin-bottom: 20px;
         }
         
         .featured-meta {
-            color: #ddd;
-            margin-bottom: 1rem;
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 20px;
         }
         
-        .pagination {
-            display: flex;
-            justify-content: center;
-            margin: 2rem 0;
-            gap: 0.5rem;
+        .featured-excerpt {
+            margin-bottom: 30px;
+            color: #aaa;
+            font-size: 16px;
+            line-height: 1.8;
         }
         
-        .pagination a {
+        .featured-button {
             display: inline-block;
-            padding: 0.5rem 1rem;
-            background: white;
-            border: 1px solid #ddd;
+            padding: 12px 30px;
+            border: 1px solid #fff;
             text-decoration: none;
-            color: #333;
-            border-radius: 4px;
+            color: #fff;
+            font-size: 14px;
             transition: all 0.3s;
         }
         
-        .pagination a:hover,
-        .pagination a.active {
-            background: #8a2be2;
-            color: white;
-            border-color: #8a2be2;
+        .featured-button:hover {
+            background: #fff;
+            color: #000;
         }
         
         footer {
-            background: #222;
-            color: white;
-            padding: 3rem 0;
+            padding: 50px 0;
+            background: #111;
+            text-align: center;
         }
         
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem;
+        .footer-links {
+            margin-bottom: 30px;
         }
         
-        .footer-section h3 {
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
+        .footer-links a {
+            color: #777;
+            margin: 0 15px;
             text-decoration: none;
-            color: #bbb;
+            font-size: 14px;
             transition: color 0.3s;
         }
         
-        .footer-section ul li a:hover {
-            color: white;
+        .footer-links a:hover {
+            color: #fff;
         }
         
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+        .social-links {
+            margin-bottom: 30px;
         }
         
-        .social-icons a {
+        .social-links a {
             display: inline-flex;
-            align-items: center;
             justify-content: center;
-            height: 40px;
+            align-items: center;
             width: 40px;
-            background: #333;
-            color: white;
+            height: 40px;
+            border: 1px solid #333;
             border-radius: 50%;
-            transition: background 0.3s;
+            margin: 0 10px;
+            color: #777;
+            text-decoration: none;
+            transition: all 0.3s;
         }
         
-        .social-icons a:hover {
-            background: #8a2be2;
+        .social-links a:hover {
+            border-color: #fff;
+            color: #fff;
         }
         
         .copyright {
-            text-align: center;
-            padding: 1.5rem 0;
-            background: #111;
-            color: #bbb;
-            font-size: 0.9rem;
+            font-size: 14px;
+            color: #555;
         }
         
         @media (max-width: 992px) {
-            .blog-container {
+            .featured-post {
                 grid-template-columns: 1fr;
-            }
-            
-            .sidebar {
-                grid-column: 1;
             }
         }
         
@@ -409,33 +349,31 @@
             }
             
             .menu {
-                flex-direction: column;
                 position: absolute;
                 top: 70px;
                 left: 0;
-                width: 100%;
-                background: white;
-                padding: 1rem 0;
-                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                transition: transform 0.3s, opacity 0.3s;
-                z-index: 100;
+                right: 0;
+                background: #f5f5f5;
+                flex-direction: column;
+                padding: 20px 0;
+                display: none;
             }
             
             .menu.active {
-                transform: translateY(0);
-                opacity: 1;
+                display: flex;
             }
             
             .menu li {
-                margin: 0;
+                margin: 10px 0;
                 text-align: center;
-                padding: 0.8rem 0;
             }
             
-            .featured-overlay h2 {
-                font-size: 1.5rem;
+            .hero-title {
+                font-size: 60px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -460,47 +398,85 @@
         </ul>
     </nav>
     
-    <header class="page-header">
-        <h1>BEYOND ARCHIVES BLOG</h1>
-        <p>Fashion insights, styling tips, and the stories behind our collections</p>
-    </header>
-    
-    <div class="blog-intro">
-        <p>Welcome to our blog, where we share our passion for fashion, sustainability, and the stories behind our curated collections. Discover styling tips, fashion history, and exclusive interviews with designers.</p>
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">beyond archives</h1>
+            <a href="#blog" class="hero-button">Read Our Blog</a>
+        </div>
     </div>
     
-    <div class="blog-container">
-        <div class="blog-main">
-            <article class="featured-post">
-                <div class="featured-image">
-                    <img src="manyshirts.jpg" alt="Fashion Trends 2025">
+    <div class="blog-container" id="blog">
+        <div class="featured-post">
+            <div class="featured-image">
+                <img src="manyshirts.jpg" alt="Featured Post">
+            </div>
+            <div class="featured-content">
+                <div class="featured-meta">March 14, 2025 | Street Culture</div>
+                <h2>The Underground Movement Reshaping Urban Fashion</h2>
+                <div class="featured-excerpt">
+                    <p>Beyond Archives is a fashion brand that curates and revives timeless vintage pieces, blending nostalgia with modern aesthetics. Focused on sustainability, Beyond Archives carefully selects garments from past decades and reintroduces them with a contemporary touch, allowing fashion enthusiasts to create unique, expressive looks. The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
+                    <p>The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
                 </div>
-                <div class="featured-overlay">
-                    <h2>Fashion Trends That Will Define 2025</h2>
-                    <div class="featured-meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> March 14, 2025</span>
-                        <span><ion-icon name="person-outline"></ion-icon> By Sofia Martinez</span>
-                    </div>
-                    <p>Discover the groundbreaking fashion trends that are set to shape this year's style landscape. From digital fashion to hyperlocal production, we explore the innovations that are redefining how we think about clothing.</p>
-                    <a href="#" class="read-more">Read Featured Article</a>
-                </div>
-            </article>
-            
+                <a href="#" class="featured-button">Read Article</a>
+            </div>
+        </div>
+        
+        <h2 class="section-title">Latest Posts</h2>
+        
+        <div class="blog-grid">
             <article class="blog-post">
                 <div class="blog-image">
-                    <img src="collection.jpg" alt="Sustainable Fashion Trends">
+                    <img src="manyshirts.jpg" alt="Vintage Fashion">
                 </div>
                 <div class="blog-content">
-                    <h2>Sustainable Fashion: Trends for 2025</h2>
                     <div class="blog-meta">
                         <span><ion-icon name="calendar-outline"></ion-icon> March 10, 2025</span>
-                        <span><ion-icon name="person-outline"></ion-icon> By Emma Chen</span>
+                        <span><ion-icon name="bookmark-outline"></ion-icon> Archive</span>
                     </div>
+                    <h2>Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
                     <div class="blog-excerpt">
-                        <p>As we navigate through 2025, sustainable fashion has evolved from a niche interest to a mainstream necessity. Discover the innovative fabrics, circular design principles, and ethical practices that are defining this year's fashion landscape.</p>
+                        <p>Nestled in the heart of Nuvali, Laguna, Beyond Archives is a haven for vintage fashion enthusiasts and streetwear aficionados alike. This curated store offers a diverse selection of rare and iconic pieces that cater to discerning tastes.</p>
                     </div>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </article>
             
-            <article class="blog
+            <article class="blog-post">
+                <div class="blog-image">
+                    <img src="/api/placeholder/400/250" alt="Designer Interview">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> March 5, 2025</span>
+                        <span><ion-icon name="bookmark-outline"></ion-icon> Interviews</span>
+                    </div>
+                    <h2>In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
+                    <div class="blog-excerpt">
+                        <p>We visit the workspace of one of streetwear's most promising talents to discuss his unconventional approach to upcycling vintage workwear and his vision for a more sustainable fashion ecosystem.</p>
+                    </div>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-post">
+                <div class="blog-image">
+                    <img src="/api/placeholder/400/250" alt="Collection Feature">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> February 28, 2025</span>
+                        <span><ion-icon name="bookmark-outline"></ion-icon> Collections</span>
+                    </div>
+                    <h2>Collectible Culture: How Limited Editions Are Evolving</h2>
+                    <div class="blog-excerpt">
+                        <p>The concept of scarcity in fashion is changing rapidly. We examine how digital authentication, community ownership models, and evolving drop strategies are reshaping what it means to own a piece of fashion history.</p>
+                    </div>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog-post">
+                <div class="blog-image">
+                    <img src="/api/placeholder/400/250" alt="Art Installation">
+                </div>
+                <div class="blog-content
