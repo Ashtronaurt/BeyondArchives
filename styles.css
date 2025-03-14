@@ -121,7 +121,7 @@ nav a:hover{
 
 .video-content h1{
     font-size: 7em;
-    color: rgba(230, 224, 217, 0.76);
+    color: rgba(245, 224, 200, 0.76);
     margin-bottom: 5px;
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: -5px;
@@ -148,9 +148,9 @@ nav a:hover{
 
 .video-content a{
     font-size: 1.5em;
-    color: #fff;
+    color: rgba(245, 224, 200, 0.76);
     text-decoration: none;
-    border: 2px solid #fff;
+    border: 2px solid rgba(245, 224, 200, 0.76);
     padding: 15px 25px;
     border-radius: 50px;
     transition: 1s;
