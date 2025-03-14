@@ -28,8 +28,6 @@
     </ul>
 </nav>
 
-<h1>ABOUT</h1>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script>
@@ -45,6 +43,85 @@
         })
     })
 </script>
+     <section class="image-banner">
+      <div class="banner-overlay">
+        <h1>Beyond Archives</h1>
+      </div>
+      <img src="background.jpg" alt="Beyond Archives" />
+    </section>
 
+    <section class="content-container">
+      <div class="video-left">
+        <iframe
+          id="fb-video"
+          src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fweb.facebook.com%2Freel%2F614910630919697%2F&show_text=false&width=267&t=0"
+          width="267"
+          height="476"
+          style="border: none; overflow: hidden"
+          scrolling="no"
+          frameborder="0"
+          allowfullscreen="true"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+        ></iframe>
+      </div>
+
+      <script>
+        setInterval(() => {
+          let fbVideo = document.getElementById("fb-video");
+          fbVideo.src = fbVideo.src; 
+        }, 5000000); 
+      </script>
+
+      <div class="about-text">
+        <h2>ABOUT BEYOND ARCHIVES</h2>
+        <p>
+          At Beyond Archives, we bridge the worlds of luxury, streetwear, and
+          archive apparel, curating a collection that embodies culture,
+          craftsmanship, and exclusivity. We believe fashion is more than just
+          clothing—it’s a statement, a history, and a lifestyle.
+        </p>
+        <br />
+        <p>
+          Our passion lies in sourcing rare, sought-after pieces from the past
+          and present, bringing together timeless icons and contemporary
+          essentials. Whether it’s high-fashion statement pieces, vintage
+          grails, or cutting-edge streetwear, Beyond Archives is where
+          authenticity meets artistry.
+        </p>
+        <br />
+        <p>
+          Driven by a deep appreciation for design and storytelling, we cater to
+          those who seek the extraordinary. Every item we curate tells a
+          story—because style is timeless, and so are the pieces we bring to
+          you.
+        </p>
+      </div>
+    </section>
+
+    <section class="cards-section">
+      <div class="cards-container">
+        <div class="card">
+          <a href="contact.html">
+            <img src="contact.jpg" alt="Contact Us" />
+            <h2>Contact Us</h2>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="collection.html">
+            <img src="collection.jpg" alt="Our Collection" />
+            <h2>Explore Collection</h2>
+          </a>
+        </div>
+
+        <div class="card">
+          <a href="reviews.html">
+            <img src="review.jpg" alt="Customer Reviews" />
+            <h2>Read Reviews</h2>
+          </a>
+        </div>
+      </div>
+    </section>
+    
 </body>
 </html>
