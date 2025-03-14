@@ -1,50 +1,506 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond Archives</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Blog | Beyond Archives</title>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-</head>
-
-<body>
-
-<nav>
-    <div class="logo">
-        <a href = "index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
-    </div>
-    <div class="toggle">
-        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
-    </div>
-    <ul class="menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="collection.html">Collections</a></li>
-        <li><a href="inspo.html">Styling Inspirations</a></li>
-        <li><a href="reviews.html">Reviews</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-        <li><a href="promotions.html">Promotions</a></li>
-        <li><a href="blog.html">Blog</a></li>
-    </ul>
-</nav>
-
-<h1>BLOG</h1>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-<script>
-    $(function(){
-        $(".toggle").on("click", function(){
-            if($(".menu").hasClass("active")){
-                $(".menu").removeClass("active");
-                $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
-            } else {
-                $(".menu").addClass("active");
-                $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .menu li {
+            margin-left: 1.5rem;
+        }
+        
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .menu a:hover {
+            color: #8a2be2;
+        }
+        
+        .toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .page-header {
+            text-align: center;
+            padding: 3rem 0;
+            background-color: #8a2be2;
+            color: white;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-intro {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .blog-main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .blog-post {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+        
+        .blog-image {
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .blog-post:hover .blog-image img {
+            transform: scale(1.05);
+        }
+        
+        .blog-content {
+            padding: 1.5rem;
+        }
+        
+        .blog-content h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-meta ion-icon {
+            margin-right: 0.3rem;
+        }
+        
+        .blog-meta span {
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-excerpt {
+            margin-bottom: 1.5rem;
+        }
+        
+        .read-more {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: #8a2be2;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .read-more:hover {
+            background: #7126bd;
+        }
+        
+        .sidebar {
+            grid-column: span 1;
+        }
+        
+        .sidebar-widget {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar-widget h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #8a2be2;
+        }
+        
+        .sidebar-widget ul {
+            list-style: none;
+        }
+        
+        .sidebar-widget ul li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-widget ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar-widget ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s;
+        }
+        
+        .sidebar-widget ul li a:hover {
+            color: #8a2be2;
+        }
+        
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: #f0f0f0;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s;
+        }
+        
+        .tag:hover {
+            background: #e0e0e0;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .newsletter-form input {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .newsletter-form button {
+            padding: 0.8rem;
+            background: #8a2be2;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background: #7126bd;
+        }
+        
+        .featured-post {
+            position: relative;
+            height: 400px;
+            grid-column: 1 / -1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .featured-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .featured-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+        }
+        
+        .featured-overlay h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .featured-meta {
+            color: #ddd;
+            margin-bottom: 1rem;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            gap: 0.5rem;
+        }
+        
+        .pagination a {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: white;
+            border: 1px solid #ddd;
+            text-decoration: none;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .pagination a:hover,
+        .pagination a.active {
+            background: #8a2be2;
+            color: white;
+            border-color: #8a2be2;
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            text-decoration: none;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 40px;
+            background: #333;
+            color: white;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: #8a2be2;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0;
+            background: #111;
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 992px) {
+            .blog-container {
+                grid-template-columns: 1fr;
             }
-        })
-    })
-</script>
-
-</body>
-</html>
+            
+            .sidebar {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .toggle {
+                display: block;
+            }
+            
+            .menu {
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem 0;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s, opacity 0.3s;
+                z-index: 100;
+            }
+            
+            .menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .menu li {
+                margin: 0;
+                text-align: center;
+                padding: 0.8rem 0;
+            }
+            
+            .featured-overlay h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="/api/placeholder/200/50" alt="Beyond Archives Logo"></a>
+        </div>
+        <div class="toggle">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+        </div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="collection.html">Collections</a></li>
+            <li><a href="inspo.html">Styling Inspirations</a></li>
+            <li><a href="reviews.html">Reviews</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="promotions.html">Promotions</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+    </nav>
+    
+    <header class="page-header">
+        <h1>BEYOND ARCHIVES BLOG</h1>
+        <p>Fashion insights, styling tips, and the stories behind our collections</p>
+    </header>
+    
+    <div class="blog-intro">
+        <p>Welcome to our blog, where we share our passion for fashion, sustainability, and the stories behind our curated collections. Discover styling tips, fashion history, and exclusive interviews with designers.</p>
+    </div>
+    
+    <div class="blog-container">
+        <div class="blog-main">
+            <article class="featured-post">
+                <div class="featured-image">
+                    <img src="/api/placeholder/800/400" alt="Fashion Trends 2025">
+                </div>
+                <div class="featured-overlay">
+                    <h2>Fashion Trends That Will Define 2025</h2>
+                    <div class="featured-meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> March 14, 2025</span>
+                        <span><ion-icon name="person-outline"></ion-icon> By Sofia Martinez</span>
+                    </div>
+                    <p>Discover the groundbreaking fashion trends that are set to shape this year's style landscape. From digital fashion to hyperlocal production, we explore the innovations that are redefining how we think about clothing.</p>
+                    <a href="#" class="read-more">Read Featured Article</a>
+                </div>
+            </article>
+            
+            <article class="blog-post">
+                <div class="blog-image">
+                    <img src="/api/placeholder/400/250" alt="Sustainable Fashion Trends">
+                </div>
+                <div class="blog-content">
+                    <h2>Sustainable Fashion: Trends for 2025</h2>
+                    <div class="blog-meta">
+                        <span><ion-icon name="calendar-outline"></ion-icon> March 10, 2025</span>
+                        <span><ion-icon name="person-outline"></ion-icon> By Emma Chen</span>
+                    </div>
+                    <div class="blog-excerpt">
+                        <p>As we navigate through 2025, sustainable fashion has evolved from a niche interest to a mainstream necessity. Discover the innovative fabrics, circular design principles, and ethical practices that are defining this year's fashion landscape.</p>
+                    </div>
+                    <a href="#" class="read-more">Read More</a>
+                </div>
+            </article>
+            
+            <article class="blog
