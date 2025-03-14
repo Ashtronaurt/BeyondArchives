@@ -125,9 +125,25 @@ nav a:hover{
     margin-bottom: 5px;
     font-family: 'Archivo Black', sans-serif;
     letter-spacing: -5px;
-    text-shadow: 0px -5px 0px rgba(0, 0, 0, 0.37);
+    text-shadow: 4px -5px 0px rgba(0, 0, 0, 0.37);
     margin-bottom: 40px;
     z-index: 1;
+
+    animation-name: slideUp;
+    animation-duration: 1s; 
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(300px);
+    }
+    50% {
+        scale: 2;
+    }
+
+    100% {
+        transform: translateY(0);
+    }
 }
 
 .video-content a{
