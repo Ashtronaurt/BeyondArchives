@@ -159,25 +159,6 @@ h1, h2 {
     border-radius: 50px;
     transition: 1s;
     z-index: 2;
-    
-    animation: slideLeft 1s ease-in-out both;
-}
-
-@keyframes slideLeft {
-    0% {
-        transform: translateX(-300px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-.video-content a:hover{
-    background: #fff;
-    color: black;
-
 }
 
 .bg-video{
