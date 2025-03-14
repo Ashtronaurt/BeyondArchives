@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,34 +66,23 @@
 <div class="map-container">
     <h2>Find Us</h2>
     <iframe 
-        src="<iframe src="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3716.1569789323153!2d121.06042367491688!3d14.240368986204414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d77b3900f47%3A0xd2d800536e803999!2sBeyond%20Archives!5e1!3m2!1sen!2sph!4v1741976998221!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>"></iframe>" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3716.1569789323153!2d121.06042367491688!3d14.240368986204414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d77b3900f47%3A0xd2d800536e803999!2sBeyond%20Archives!5e1!3m2!1sen!2sph!4v1741976998221!5m2!1sen!2sph" 
         width="600" height="450" style="border:0;" allowfullscreen="" 
         loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
 </div>
 
-
 <script>
-    $(function(){
-        $(".toggle").on("click", function(){
-            if($(".menu").hasClass("active")){
-                $(".menu").removeClass("active");
-                $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
-            } else {
-                $(".menu").addClass("active");
-                $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
-            }
-        });
+    document.querySelector(".toggle").addEventListener("click", function() {
+        let menu = document.querySelector(".menu");
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            this.innerHTML = "<ion-icon name='menu-outline'></ion-icon>";
+        } else {
+            menu.classList.add("active");
+            this.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
+        }
     });
-
-    function initMap() {
-        const location = { lat: 14.2815, lng: 121.4163 }; // Update with your real location
-        const map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 15,
-            center: location,
-        });
-        new google.maps.Marker({ position: location, map: map });
-    }
 
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -102,3 +92,4 @@
 </script>
 
 </body>
+</html>
