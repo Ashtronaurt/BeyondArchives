@@ -40,8 +40,8 @@
         </ul>
         <h3>Follow Us</h3>
         <div class="social-icons">
-            <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-            <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
+            <a href="https://www.facebook.com/beyondarchivesph"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="https://www.instagram.com/beyond__archives/"><ion-icon name="logo-instagram"></ion-icon></a>
             <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
         </div>
     </div>
@@ -87,7 +87,7 @@
         });
     });
 
-    // Google Maps Function
+    
     function initMap() {
         const location = { lat: 14.2815, lng: 121.4163 }; // Update with your real location
         const map = new google.maps.Map(document.getElementById("map"), {
@@ -97,7 +97,7 @@
         new google.maps.Marker({ position: location, map: map });
     }
 
-    // Form Submission Handling
+    
     document.getElementById("contactForm").addEventListener("submit", function(event) {
         event.preventDefault();
         alert("Your message has been sent!");
