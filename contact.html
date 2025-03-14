@@ -11,7 +11,7 @@
 
 <nav>
     <div class="logo">
-        <a href = "index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
+        <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
     </div>
     <div class="toggle">
         <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
@@ -20,7 +20,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="collection.html">Collections</a></li>
-        <li><a href="inspo.html">Styling Inspirabhb tions</a></li>
+        <li><a href="inspo.html">Styling Inspirations</a></li> <!-- ✅ Fixed Typo -->
         <li><a href="reviews.html">Reviews</a></li>
         <li><a href="contact.html">Contact Us</a></li>
         <li><a href="promotions.html">Promotions</a></li>
@@ -49,27 +49,29 @@
     <div class="contact-form">
         <h2>Send us a Message</h2>
         <form id="contactForm">
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="4" required></textarea>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
 
-    <button type="submit">Send</button>
-</form>
+            <button type="submit">Send</button>
+        </form>
+    </div> <!-- ✅ Closed contact-form div -->
 
-
+</div> <!-- ✅ Closed contact-container div -->
 
 <div class="map-container">
     <h2>Find Us</h2>
     <div id="map"></div>
+</div> <!-- ✅ Closed map-container div -->
+
+<!-- Google Maps API -->
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 
- 
-    
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
 <script>
@@ -82,12 +84,9 @@
                 $(".menu").addClass("active");
                 $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
             }
-        })
-    })
-</script>
+        });
+    });
 
-</body>
-    <script>
     // Google Maps Function
     function initMap() {
         const location = { lat: 14.2815, lng: 121.4163 }; // Update with your real location
@@ -106,6 +105,5 @@
     });
 </script>
 
+</body>
 </html>
-
-
