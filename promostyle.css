@@ -109,9 +109,250 @@ h1, h2 {
     color: rgb(50, 63, 47);
 }
 
-article h1 {
-    text-align: center;
-    margin: 20px 0;
-    color: rgba(50, 63, 47, 0.5);
-    font-size: 30px;
+.promo {
+    width: 40%;
+    max-width: 600px;
+    margin: 20px auto;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    gap: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+}
+
+.promo img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.promo div {
+    flex: 1;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.promo div h2 {
+    margin: 0 0 10px;
+    color: rgb(50, 63, 47);
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.promo div p {
+    margin: 0;
+    text-align: justify;
+    line-height: 1.4;
+    color: #444;
+    font-size: 0.95rem;
+    overflow: visible;
+}
+
+.promo:hover {
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .promo {
+        width: 50%;
+    }
+    
+    .promo img {
+        width: 110px;
+        height: 110px;
+    }
+    
+    .promo div {
+        min-height: 110px;
+    }
+}
+
+@media (max-width: 768px) {
+    .promo {
+        width: 70%;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .promo img {
+        width: 100%;
+        height: 150px;
+    }
+    
+    .promo div {
+        min-height: auto;
+    }
+    
+    .promo div h2 {
+        text-align: center;
+        font-size: 1.25rem;
+    }
+    
+    .promo div p {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .promo {
+        width: 90%;
+        padding: 12px;
+    }
+    
+    .promo img {
+        height: 120px;
+    }
+    
+    .promo div h2 {
+        font-size: 1.2rem;
+    }
+    
+    .promo div p {
+        font-size: 0.9rem;
+    }
+}
+
+/*Modal*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 2rem auto;
+    padding: 40px 25px 25px;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.image-container {
+    margin-bottom: 2rem;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.text-content {
+    line-height: 1.7;
+    text-align: left;
+}
+
+.text-content p {
+    margin: 0 0 1.8rem;
+    color: #444;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.text-content .highlight {
+    background: #f8f9fa;
+    padding: 1.2rem;
+    border-left: 3px solid #007bff;
+    border-radius: 4px;
+}
+
+.text-content h1 {
+    font-size: 1.8rem;
+    color: #222;
+    margin: 0 0 2rem;
+}
+
+.text-content h2 {
+    font-size: 1.3rem;
+    color: rgb(50, 63, 47);
+    margin: 0 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.social {
+    background: #f8f9fa;
+    padding: 1rem;
+    text-align: center !important;
+    border-radius: 4px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #666;
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+}
+
+.social a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social a:hover {
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        padding: 50px 40px 40px;
+    }
+    
+    .text-content p {
+        font-size: 1.05rem;
+    }
+    
+    .text-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .text-content h2 {
+        font-size: 1.4rem;
+    }
+    
+    .image-container img {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .text-content p {
+        text-align: left;
+    }
+    
+    .image-container {
+        margin-bottom: 1.5rem;
+    }
 }

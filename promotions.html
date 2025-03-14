@@ -36,8 +36,54 @@
 
 <section>
     <article>
-        <br><br><br>
-        <h1>No Ongoing Promotions</h1>
+        <div class="promo" id="openModal">
+            <img src="collection.jpg">
+
+            <div>
+                <h2>Grand Opening Sale</h2>
+
+                <p>We're excited to finally open our doors and invite you to the Grand Opening Sale here at Beyond Archives! Stop by our store and check out some great deals on select items.</p>
+            </div>
+        </div>
+
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="modal-body">
+                    <div class="image-container">
+                        <img src="collection.jpg" alt="Store Collection Preview">
+                    </div>
+                    
+                    <div class="text-content">
+                        <h1>Grand Opening Sale</h1>
+
+                        <h2>Join Us on January 30, 2025</h2>
+                        <p class="highlight">
+                            We're excited to finally open our doors and invite you to our Grand Opening Sale at Beyond Archives! 
+                            Discover great deals on select items and enjoy a special 10% discount for the first 50 visitors.
+                        </p>
+        
+                        <h2>Special Offer</h2>
+                        <p>
+                            Be among the first 50 guests on opening day (January 30, 2025) to receive an extra 10% off your entire purchase. 
+                            No rush - take your time exploring our carefully curated collection at your own pace.
+                        </p>
+        
+                        <h2>In-Store Experience</h2>
+                        <p>
+                            Enjoy our laid-back shopping environment with knowledgeable staff ready to assist you. 
+                            This exclusive sale is only available in-store, giving you the perfect reason to experience 
+                            our collection firsthand.
+                        </p>
+        
+                        <p class="social">
+                            Follow us on <a href="https://www.facebook.com/beyondarchivesph">Beyond Archives Facebook Page</a> 
+                            for updates and special announcements.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </article>
 </section>
 
@@ -61,6 +107,24 @@
             }
         })
     })
+
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("openModal");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if(event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 </script>
 
 </body>
