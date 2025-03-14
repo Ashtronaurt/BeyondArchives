@@ -518,7 +518,7 @@ h1, h2 {
 
 /* -------------------------------- Contact Us -------------------------------- */
 
-/* Global Styles */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -526,7 +526,7 @@ body {
     background-color: #f8f8f8;
 }
 
-/* Navigation */
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -561,7 +561,7 @@ nav .menu li a:hover {
     color: #ffcc00;
 }
 
-/* Mobile Menu Toggle */
+
 .toggle {
     display: none;
     font-size: 24px;
@@ -688,7 +688,7 @@ h1 {
     color: black;
 }
 
-/* Google Maps */
+
 .map-container {
     width: 80%;
     max-width: 1000px;
@@ -703,7 +703,7 @@ h1 {
     border: 1px solid #ddd;
 }
 
-/* Responsive Design */
+
 @media screen and (max-width: 768px) {
     .contact-container {
         flex-direction: column;
