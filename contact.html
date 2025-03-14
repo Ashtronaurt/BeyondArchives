@@ -3,69 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        .contact-container {
-            max-width: 900px;
-            margin: auto;
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .contact-info {
-            text-align: left;
-        }
-        .contact-form {
-            text-align: left;
-        }
-        .icon {
-            font-size: 20px;
-            margin-right: 10px;
-        }
-    </style>
+    <title>Beyond Archives</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 </head>
+
 <body>
-    <div class="container my-5">
-        <div class="contact-container">
-            <h2 class="text-center">CONTACT US</h2>
-            <p class="text-center">If you have any questions, please contact us. We'd love to hear from you!</p>
-            <div class="row mt-4">
-                <div class="col-md-6 contact-form">
-                    <h4>Send us a Message</h4>
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-dark">Send</button>
-                    </form>
-                </div>
-                <div class="col-md-6 contact-info">
-                    <h4>Contact Information</h4>
-                    <p><strong>Email:</strong> beyondarchivesph@gmail.com</p>
-                    <p><strong>Phone:</strong> 0995 264 9334</p>
-                    <p><strong>Address:</strong> Mesaland Drive, Sta. Rosa, Philippines</p>
-                    <h5>Follow Us</h5>
-                    <i class="fab fa-facebook icon"></i>
-                    <i class="fab fa-instagram icon"></i>
-                </div>
-            </div>
+
+<nav>
+    <div class="logo">
+        <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
+    </div>
+    <div class="toggle">
+        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+    </div>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="collection.html">Collections</a></li>
+        <li><a href="inspo.html">Styling Inspirations</a></li> 
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="promotions.html">Promotions</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+</nav>
+
+<h1>CONTACT US</h1>
+<div class="contact-container">
+    <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>If you have any questions, please contact us. We'd love to hear from you!</p>
+        <ul>
+            <li><strong>Email:</strong> beyondarchivesph@gmail.com</li>
+            <li><strong>Phone:</strong> 0995 264 9334</li>
+            <li><strong>Address:</strong> Mesaland Drive, Sta. Rosa, Philippines</li>
+        </ul>
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/beyondarchivesph" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+            <a href="https://www.instagram.com/beyond__archives/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
         </div>
     </div>
+
+    <div class="contact-form">
+        <h2>Send us a Message</h2>
+        <form id="contactForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+    </div> 
+</div> 
+
+<div class="map-container">
+    <h2>Find Us</h2>
+    <iframe 
+        src="e="<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3716.1569789323153!2d121.06042367491688!3d14.240368986204414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7d77b3900f47%3A0xd2d800536e803999!2sBeyond%20Archives!5e1!3m2!1sen!2sph!4v1741979669748!5m2!1sen!2sph" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+        width="600" height="450" style="border:0;" allowfullscreen="" 
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+<script>
+    document.querySelector(".toggle").addEventListener("click", function() {
+        let menu = document.querySelector(".menu");
+        if (menu.classList.contains("active")) {
+            menu.classList.remove("active");
+            this.innerHTML = "<ion-icon name='menu-outline'></ion-icon>";
+        } else {
+            menu.classList.add("active");
+            this.innerHTML = "<ion-icon name='close-outline'></ion-icon>";
+        }
+    });
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        alert("Your message has been sent!");
+        this.reset();
+    });
+</script>
+
 </body>
 </html>
