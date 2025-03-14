@@ -202,6 +202,102 @@ nav a:hover{
     }
 }
 /* ------------------------------ Footer Styles -------------------------------*/
+
+.style-categories {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category {
+    margin-bottom: 60px;
+}
+
+.category h2 {
+    font-size: 2.5em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Gilda Display', serif;
+}
+
+.style-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.style-card {
+    background: rgb(230, 224, 217);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.style-card:hover {
+    transform: translateY(-10px);
+}
+
+.style-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.style-card h3 {
+    padding: 20px 20px 10px;
+    font-size: 1.4em;
+    color: rgb(50, 63, 47);
+}
+
+.style-card p {
+    padding: 0 20px 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.style-tips {
+    margin-top: 60px;
+}
+
+.tips-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tip {
+    text-align: center;
+    padding: 30px;
+    background: rgb(230, 224, 217);
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.tip:hover {
+    transform: translateY(-5px);
+}
+
+.tip i {
+    font-size: 2.5em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 20px;
+}
+
+.tip h3 {
+    font-size: 1.3em;
+    color: rgb(50, 63, 47);
+    margin-bottom: 15px;
+}
+
+.tip p {
+    color: #666;
+    line-height: 1.6;
+}
+
 /* -------------------------------- Home -------------------------------- */
 .video-container{
     width: 100%;
