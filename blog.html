@@ -1,549 +1,610 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Beyond Archives</title>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Blog | Beyond Archives</title>
+     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap');
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <style>
+         @import url('https://fonts.googleapis.com/css2?family=Gilda+Display&family=Roboto:ital,wght@0,100..900;1,100..900&family=Tangerine:wght@400;700&display=swap');
+ 
+         *{
+             margin: 0;
+             padding: 0;
+             box-sizing: border-box;
+         }
+ 
+         body{
+             font-family: "Gilda Display", serif;
+             font-weight: 600;
+             font-style: normal;
+             background: #fff;
+         }
+ 
+         a, a:hover{
+             text-decoration: none;
+         }
+ 
+         /* -------------------------------- Navigation Bar -------------------------------- */
+         nav{
+             background: rgb(230, 224, 217);
+             padding: 5px 20px;
+             display: flex;
+             align-items: center;
+         }
+ 
+         nav a{
+             color: rgb(0, 0, 0);
+         }
+ 
+         nav a:hover{
+             color: rgb(50, 63, 47);
+         }
+ 
+         .logo{
+             flex:1;
+         }
+ 
+         .logo a{
+             display: flex;
+             align-items: center;
+             font-size: 20px;
+         }
+ 
+         .logo a:hover{
+             color: white;
+         }
+ 
+         .logo img{
+             width: 55px;
+             margin-right: 50px;
+             transition: transform 0.2s ease-in-out;
+         }
+ 
+         .logo img:hover{
+             width: 55px;
+             margin-right: 50px;
+             transform: scale(1.1);
+         }
+ 
+         .menu{
+             display: flex;
+             align-items: center;
+             list-style: none;
+         }
+ 
+         .menu li{
+             padding: 15px 10px;
+             transition: transform 0.2s ease-in-out;
+         }
+ 
+         .menu li:hover{
+             border-radius: 5px;
+             background: rgb(201, 190, 175);
+             box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+             transform: scale(1.1);
+         }
+ 
+         .toggle{
+             font-size: 30px;
+             display: none;
+         }
+ 
+         @media screen and (max-width: 768px) {
+             nav{
+                 display: block;
+                 position: relative;
+                 padding: 15px 20px;
+             }
+ 
+             .menu{
+                 margin-top: 15px;
+                 display: none;
+             }
+ 
+             .menu.active, .toggle{
+                 display: block;
+             }
+ 
+             .toggle{
+                 position: absolute;
+                 top: 15px;
+                 right: 20px;
+             }
+         }
+         /* -------------------------------- Navigation Bar -------------------------------- */
+ 
+         .hero {
+             height: 80vh;
+             height: 95vh;
+             position: relative;
+             background-image: url('manyshirts.jpg');
+             background-size: cover;
+             background-position: center;
+             display: flex;
+             align-items: center;
+             justify-content: center;
+         }
+ 
+         .hero::after {
+             content: '';
+             position: absolute;
+             top: 0;
+             left: 0;
+             width: 100%;
+             height: 100%;
+             background: rgba(0, 0, 0, 0.6);
+             z-index: 1;
+         }
+ 
+         .hero-content {
+             position: relative;
+             z-index: 2;
+             text-align: center;
+         }
+ 
+         .hero-title {
+             font-size: 100px;
+             font-weight: 300;
+             text-transform: lowercase;
+             letter-spacing: 2px;
+             color: #f5f5f5;
+             margin-bottom: 30px;
+         }
+ 
+         .hero-button {
+             display: inline-block;
+             padding: 15px 40px;
+             border: 2px solid #fff;
+             border-radius: 30px;
+             text-decoration: none;
+             color: #fff;
+             font-size: 16px;
+             font-weight: 400;
+             transition: all 0.3s;
+         }
+ 
+         .hero-button:hover {
+             background: #fff;
+             color: #000;
+         }
+ 
+         .blog-container {
+             max-width: 1200px;
+             margin: 80px auto;
+             padding: 0 20px;
+         }
+ 
+         .blog-grid {
+             display: grid;
+             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+             gap: 40px;
+         }
+ 
+         .blog-post {
+             background: #111;
+             overflow: hidden;
+             transition: transform 0.3s;
+             border-radius: 10px;
+             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+         }
+ 
+         .blog-post:hover {
+             transform: translateY(-10px);
+         }
+ 
+         .blog-image {
+             height: 250px;
+             overflow: hidden;
+         }
+ 
+         .blog-image img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+             transition: transform 0.5s;
+         }
+ 
+         .blog-post:hover .blog-image img {
+             transform: scale(1.05);
+         }
+ 
+         .blog-content {
+             padding: 30px;
+         }
+ 
+         .blog-content h2 {
+             font-size: 22px;
+             font-weight: 400;
+             margin-bottom: 15px;
+             transition: color 0.3s;
+         }
+ 
+         .blog-post:hover .blog-content h2 {
+             color: #aaa;
+         }
+ 
+         .blog-meta {
+             font-size: 14px;
+             color: #777;
+             margin-bottom: 15px;
+             display: flex;
+             align-items: center;
+         }
+ 
+         .blog-meta span {
+             margin-right: 20px;
+             display: flex;
+             align-items: center;
+         }
+ 
+         .blog-meta ion-icon {
+             margin-right: 5px;
+         }
+ 
+         .blog-excerpt {
+             margin-bottom: 20px;
+             color: #aaa;
+             font-size: 15px;
+             line-height: 1.7;
+         }
+ 
+         .read-more {
+             display: inline-block;
+             padding: 10px 0;
+             color: #fff;
+             text-decoration: none;
+             font-size: 14px;
+             font-weight: 400;
+             position: relative;
+         }
+ 
+         .read-more::after {
+             content: '';
+             position: absolute;
+             bottom: 5px;
+             left: 0;
+             width: 100%;
+             height: 1px;
+             background: #fff;
+             transform: scaleX(0);
+             transform-origin: right;
+             transition: transform 0.3s;
+         }
+ 
+         .blog-post:hover .read-more::after {
+             transform: scaleX(1);
+             transform-origin: left;
+         }
+ 
+         .section-title {
+             font-size: 34px;
+             font-weight: 300;
+             margin-bottom: 50px;
+             text-transform: uppercase;
+             letter-spacing: 1px;
+         }
+ 
+         .featured-post {
+             margin-bottom: 80px;
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 30px;
+             align-items: center;
+         }
+ 
+         .featured-image {
+             height: 500px;
+             overflow: hidden;
+         }
+ 
+         .featured-image img {
+             width: 100%;
+             height: 100%;
+             object-fit: cover;
+         }
+ 
+         .featured-content {
+             padding: 30px;
+         }
+ 
+         .featured-content h2 {
+             font-size: 34px;
+             font-weight: 300;
+             margin-bottom: 20px;
+         }
+ 
+         .featured-meta {
+             font-size: 14px;
+             color: #777;
+             margin-bottom: 20px;
+         }
+ 
+         .featured-excerpt {
+             margin-bottom: 30px;
+             color: #aaa;
+             color: #010101;
+             font-size: 16px;
+             line-height: 1.8;
+             text-align: justify;
+         }
+ 
+         .featured-button {
+             display: inline-block;
+             padding: 12px 30px;
+             border: 1px solid #fff;
+             text-decoration: none;
+             color: #fff;
+             font-size: 14px;
+             transition: all 0.3s;
+         }
+ 
+         .featured-button:hover {
+             background: #fff;
+             color: #000;
+         }
+ 
+         footer {
+             padding: 50px 0;
+             background: #111;
+             text-align: center;
+         }
+ 
+         .footer-links {
+             margin-bottom: 30px;
+         }
+ 
+         .footer-links a {
+             color: #777;
+             margin: 0 15px;
+             text-decoration: none;
+             font-size: 14px;
+             transition: color 0.3s;
+         }
+ 
+         .footer-links a:hover {
+             color: #fff;
+         }
+ 
+         .social-links {
+             margin-bottom: 30px;
+         }
+ 
+         .social-links a {
+             display: inline-flex;
+             justify-content: center;
+             align-items: center;
+             width: 40px;
+             height: 40px;
+             border: 1px solid #333;
+             border-radius: 50%;
+             margin: 0 10px;
+             color: #777;
+             text-decoration: none;
+             transition: all 0.3s;
+         }
+ 
+         .social-links a:hover {
+             border-color: #fff;
+             color: #fff;
+         }
+ 
+         .copyright {
+             font-size: 14px;
+             color: #555;
+         }
+ 
+         @media (max-width: 992px) {
+             .featured-post {
+                 grid-template-columns: 1fr;
+             }
+         }
+ 
+         @media (max-width: 768px) {
+             .toggle {
+                 display: block;
+             }
+ 
+             .menu {
+                 position: absolute;
+                 top: 70px;
+                 left: 0;
+                 right: 0;
+                 background: #f5f5f5;
+                 flex-direction: column;
+                 padding: 20px 0;
+                 display: none;
+             }
+ 
+             .menu.active {
+                 display: flex;
+             }
+ 
+             .menu li {
+                 margin: 10px 0;
+                 text-align: center;
+             }
+ 
+             .hero-title {
+                 font-size: 60px;
+             }
+ 
+             .blog-grid {
+                 grid-template-columns: 1fr;
+             }
+         }
+     </style>
+ </head>
+ <body>
+     <nav>
+         <div class="logo">
+             <a href="index.html"><img src="manyshirts.jpg" alt="Beyond Archives Logo"></a>
+             <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
+         </div>
+         <div class="toggle">
+             <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+         </div>
+         <ul class="menu">
+             <li><a href="index.html">Home</a></li>
+             <li><a href="about.html">About Us</a></li>
+             <li><a href="collection.html">Collections</a></li>
+             <li><a href="inspo.html">Styling Inspirations</a></li>
+             <li><a href="reviews.html">Reviews</a></li>
+             <li><a href="contact.html">Contact Us</a></li>
+             <li><a href="promotions.html">Promotions</a></li>
+             <li><a href="blog.html" class="active">Blog</a></li>
+             <li><a href="blog.html">Blog</a></li>
+         </ul>
+     </nav>
+ 
+     <div class="hero">
+         <div class="hero-content">
+             <h1 class="hero-title">beyond archives</h1>
+             <a href="#blog" class="hero-button">Read Our Blog</a>
+             <h1 class="hero-title">Our Blog</h1>
+         </div>
+     </div>
+ 
+     <div class="blog-container" id="blog">
+         <div class="featured-post">
+             <div class="featured-image">
+                 <img src="manyshirts.jpg" alt="Featured Post">
+             </div>
+             <div class="featured-content">
+                 <div class="featured-meta">March 14, 2025 | Street Culture</div>
+                 <h2>The Underground Movement Reshaping Urban Fashion</h2>
+                 <div class="featured-excerpt">
+                     <p>Beyond Archives is a fashion brand that curates and revives timeless vintage pieces, blending nostalgia with modern aesthetics. Focused on sustainability, Beyond Archives carefully selects garments from past decades and reintroduces them with a contemporary touch, allowing fashion enthusiasts to create unique, expressive looks. The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
+                     <p>The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
+                 </div>
+                 <a href="#" class="featured-button">Read Article</a>
+             </div>
+         </div>
+ 
+         <h2 class="section-title">Latest Posts</h2>
+ 
+         <div class="blog-grid">
+             <article class="blog-post">
+                 <div class="blog-image">
+                     <img src="manyshirts.jpg" alt="Vintage Fashion">
+                 </div>
+                 <div class="blog-content">
+                     <div class="blog-meta">
+                         <span><ion-icon name="calendar-outline"></ion-icon> March 10, 2025</span>
+                         <span><ion-icon name="bookmark-outline"></ion-icon> Archive</span>
+                     </div>
+                     <h2>Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
+                     <h2 style="color: white;">Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
+                     <div class="blog-excerpt">
+                         <p>Nestled in the heart of Nuvali, Laguna, Beyond Archives is a haven for vintage fashion enthusiasts and streetwear aficionados alike. This curated store offers a diverse selection of rare and iconic pieces that cater to discerning tastes.</p>
+                     </div>
+                     <a href="#" class="read-more">Read More</a>
+                 </div>
+             </article>
+ 
+             <article class="blog-post">
+                 <div class="blog-image">
+                     <img src="/api/placeholder/400/250" alt="Designer Interview">
+                     <img src="collection.jpg" alt="Designer Interview">
+                 </div>
+                 <div class="blog-content">
+                     <div class="blog-meta">
+                         <span><ion-icon name="calendar-outline"></ion-icon> March 5, 2025</span>
+                         <span><ion-icon name="bookmark-outline"></ion-icon> Interviews</span>
+                     </div>
+                     <h2>In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
+                     <h2 style="color: white;">In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
+                     <div class="blog-excerpt">
+                         <p>We visit the workspace of one of streetwear's most promising talents to discuss his unconventional approach to upcycling vintage workwear and his vision for a more sustainable fashion ecosystem.</p>
+                     </div>
+                     <a href="#" class="read-more">Read More</a>
+                 </div>
+             </article>
+ 
+             <article class="blog-post">
+                 <div class="blog-image">
+                     <img src="contact.jpg" alt="Collection Feature">
+                 </div>
+                 <div class="blog-content">
+                     <div class="blog-meta">
+                         <span><ion-icon name="calendar-outline"></ion-icon> February 28, 2025</span>
+                         <span><ion-icon name="bookmark-outline"></ion-icon> Collections</span>
+                     </div>
+                     <h2>Collectible Culture: How Limited Editions Are Evolving</h2>
+                     <h2 style="color: white;">Collectible Culture: How Limited Editions Are Evolving</h2>
+                     <div class="blog-excerpt">
+                         <p>The concept of scarcity in fashion is changing rapidly. We examine how digital authentication, community ownership models, and evolving drop strategies are reshaping what it means to own a piece of fashion history.</p>
+                     </div>
+                     <a href="#" class="read-more">Read More</a>
+                 </div>
+             </article>
+             
+             <article class="blog-post">
+                 <div class="blog-image">
+                     <img src="/api/placeholder/400/250" alt="Art Installation">
+                 </div>
+                 <div class="blog-content
+         </div>
+     </div>
 
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body{
-            font-family: "Gilda Display", serif;
-            font-weight: 600;
-            font-style: normal;
-            background: #fff;
-        }
-
-        a, a:hover{
-            text-decoration: none;
-        }
-
-        /* -------------------------------- Navigation Bar -------------------------------- */
-        nav{
-            background: rgb(230, 224, 217);
-            padding: 5px 20px;
-            display: flex;
-            align-items: center;
-        }
-
-        nav a{
-            color: rgb(0, 0, 0);
-        }
-
-        nav a:hover{
-            color: rgb(50, 63, 47);
-        }
-
-        .logo{
-            flex:1;
-        }
-
-        .logo a{
-            display: flex;
-            align-items: center;
-            font-size: 20px;
-        }
-
-        .logo a:hover{
-            color: white;
-        }
-
-        .logo img{
-            width: 55px;
-            margin-right: 50px;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .logo img:hover{
-            width: 55px;
-            margin-right: 50px;
-            transform: scale(1.1);
-        }
-
-        .menu{
-            display: flex;
-            align-items: center;
-            list-style: none;
-        }
-
-        .menu li{
-            padding: 15px 10px;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .menu li:hover{
-            border-radius: 5px;
-            background: rgb(201, 190, 175);
-            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-            transform: scale(1.1);
-        }
-
-        .toggle{
-            font-size: 30px;
-            display: none;
-        }
-
-        @media screen and (max-width: 768px) {
-            nav{
-                display: block;
-                position: relative;
-                padding: 15px 20px;
-            }
-
-            .menu{
-                margin-top: 15px;
-                display: none;
-            }
-
-            .menu.active, .toggle{
-                display: block;
-            }
-
-            .toggle{
-                position: absolute;
-                top: 15px;
-                right: 20px;
-            }
-        }
-        /* -------------------------------- Navigation Bar -------------------------------- */
-        
-        .hero {
-            height: 95vh;
-            position: relative;
-            background-image: url('manyshirts.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-        
-        .hero-title {
-            font-size: 100px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: #f5f5f5;
-            margin-bottom: 30px;
-        }
-        
-        .hero-button {
-            display: inline-block;
-            padding: 15px 40px;
-            border: 2px solid #fff;
-            border-radius: 30px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 16px;
-            font-weight: 400;
-            transition: all 0.3s;
-        }
-        
-        .hero-button:hover {
-            background: #fff;
-            color: #000;
-        }
-        
-        .blog-container {
-            max-width: 1200px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-        
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        
-        .blog-post {
-            background: #111;
-            overflow: hidden;
-            transition: transform 0.3s;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        
-        .blog-post:hover {
-            transform: translateY(-10px);
-        }
-        
-        .blog-image {
-            height: 250px;
-            overflow: hidden;
-        }
-        
-        .blog-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-        
-        .blog-post:hover .blog-image img {
-            transform: scale(1.05);
-        }
-        
-        .blog-content {
-            padding: 30px;
-        }
-        
-        .blog-content h2 {
-            font-size: 22px;
-            font-weight: 400;
-            margin-bottom: 15px;
-            transition: color 0.3s;
-        }
-        
-        .blog-post:hover .blog-content h2 {
-            color: #aaa;
-        }
-        
-        .blog-meta {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .blog-meta span {
-            margin-right: 20px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .blog-meta ion-icon {
-            margin-right: 5px;
-        }
-        
-        .blog-excerpt {
-            margin-bottom: 20px;
-            color: #aaa;
-            font-size: 15px;
-            line-height: 1.7;
-        }
-        
-        .read-more {
-            display: inline-block;
-            padding: 10px 0;
-            color: #fff;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 400;
-            position: relative;
-        }
-        
-        .read-more::after {
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 1px;
-            background: #fff;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s;
-        }
-        
-        .blog-post:hover .read-more::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        
-        .section-title {
-            font-size: 34px;
-            font-weight: 300;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .featured-post {
-            margin-bottom: 80px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
-        }
-        
-        .featured-image {
-            height: 500px;
-            overflow: hidden;
-        }
-        
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .featured-content {
-            padding: 30px;
-        }
-        
-        .featured-content h2 {
-            font-size: 34px;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-        
-        .featured-meta {
-            font-size: 14px;
-            color: #777;
-            margin-bottom: 20px;
-        }
-        
-        .featured-excerpt {
-            margin-bottom: 30px;
-            color: #010101;
-            font-size: 16px;
-            line-height: 1.8;
-            text-align: justify;
-        }
-        
-        .featured-button {
-            display: inline-block;
-            padding: 12px 30px;
-            border: 1px solid #fff;
-            text-decoration: none;
-            color: #fff;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
-        
-        .featured-button:hover {
-            background: #fff;
-            color: #000;
-        }
-        
-        footer {
-            padding: 50px 0;
-            background: #111;
-            text-align: center;
-        }
-        
-        .footer-links {
-            margin-bottom: 30px;
-        }
-        
-        .footer-links a {
-            color: #777;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #fff;
-        }
-        
-        .social-links {
-            margin-bottom: 30px;
-        }
-        
-        .social-links a {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            border: 1px solid #333;
-            border-radius: 50%;
-            margin: 0 10px;
-            color: #777;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-links a:hover {
-            border-color: #fff;
-            color: #fff;
-        }
-        
-        .copyright {
-            font-size: 14px;
-            color: #555;
-        }
-        
-        @media (max-width: 992px) {
-            .featured-post {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .toggle {
-                display: block;
-            }
-            
-            .menu {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: #f5f5f5;
-                flex-direction: column;
-                padding: 20px 0;
-                display: none;
-            }
-            
-            .menu.active {
-                display: flex;
-            }
-            
-            .menu li {
-                margin: 10px 0;
-                text-align: center;
-            }
-            
-            .hero-title {
-                font-size: 60px;
-            }
-            
-            .blog-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <nav>
-        <div class="logo">
-            <a href="index.html"><img src="beyondarchiveslogo.jpg" alt="Beyond Archives Logo"></a>
-        </div>
-        <div class="toggle">
-            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
-        </div>
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="collection.html">Collections</a></li>
-            <li><a href="inspo.html">Styling Inspirations</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="promotions.html">Promotions</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-    </nav>
-    
-    <div class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">Our Blog</h1>
-        </div>
-    </div>
-    
-    <div class="blog-container" id="blog">
-        <div class="featured-post">
-            <div class="featured-image">
-                <img src="ukay1.jpg" alt="Featured Post">
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>Beyond Archives</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="collection.html">Our Collections</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
             </div>
-            <div class="featured-content">
-                <div class="featured-meta">March 14, 2025 | Street Culture</div>
-                <h2>The Underground Movement Reshaping Urban Fashion</h2>
-                <div class="featured-excerpt">
-                    <p>Beyond Archives is a fashion brand that curates and revives timeless vintage pieces, blending nostalgia with modern aesthetics. Focused on sustainability, Beyond Archives carefully selects garments from past decades and reintroduces them with a contemporary touch, allowing fashion enthusiasts to create unique, expressive looks. The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
-                    <p>The brand celebrates individuality, craftsmanship, and the rich history of fashion while promoting eco-conscious shopping through upcycled and pre-loved collections. Whether you're looking for statement vintage pieces or styling inspiration, Beyond Archives is your go-to destination for fashion that transcends time.</p>
+            <div class="footer-col">
+                <h4>Get Help</h4>
+                <ul>
+                    <li><a href="#">Shipping Info</a></li>
+                    <li><a href="#">Returns</a></li>
+                    <li><a href="#">Order Status</a></li>
+                    <li><a href="#">Payment Options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Style Guide</h4>
+                <ul>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">Style Tips</a></li>
+                    <li><a href="#">Lookbook</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
-                <a href="#" class="featured-button">Read Article</a>
             </div>
         </div>
-        
-        <h2 class="section-title">Latest Posts</h2>
-        
-        <div class="blog-grid">
-            <article class="blog-post">
-                <div class="blog-image">
-                    <img src="ukay1.jpg" alt="Vintage Fashion">
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> March 10, 2025</span>
-                        <span><ion-icon name="bookmark-outline"></ion-icon> Archive</span>
-                    </div>
-                    <h2 style="color: white;">Beyond Archives: A Haven for Vintage and Streetwear Enthusiasts</h2>
-                    <div class="blog-excerpt">
-                        <p>Nestled in the heart of Nuvali, Laguna, Beyond Archives is a haven for vintage fashion enthusiasts and streetwear aficionados alike. This curated store offers a diverse selection of rare and iconic pieces that cater to discerning tastes.</p>
-                    </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </article>
-            
-            <article class="blog-post">
-                <div class="blog-image">
-                    <img src="ukay.jpg" alt="Designer Interview">
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> March 5, 2025</span>
-                        <span><ion-icon name="bookmark-outline"></ion-icon> Interviews</span>
-                    </div>
-                    <h2 style="color: white;">In the Studio: Conversations with Emerging Designer Kai Nguyen</h2>
-                    <div class="blog-excerpt">
-                        <p>We visit the workspace of one of streetwear's most promising talents to discuss his unconventional approach to upcycling vintage workwear and his vision for a more sustainable fashion ecosystem.</p>
-                    </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </article>
-            
-            <article class="blog-post">
-                <div class="blog-image">
-                    <img src="contact.jpg" alt="Collection Feature">
-                </div>
-                <div class="blog-content">
-                    <div class="blog-meta">
-                        <span><ion-icon name="calendar-outline"></ion-icon> February 28, 2025</span>
-                        <span><ion-icon name="bookmark-outline"></ion-icon> Collections</span>
-                    </div>
-                    <h2 style="color: white;">Collectible Culture: How Limited Editions Are Evolving</h2>
-                    <div class="blog-excerpt">
-                        <p>The concept of scarcity in fashion is changing rapidly. We examine how digital authentication, community ownership models, and evolving drop strategies are reshaping what it means to own a piece of fashion history.</p>
-                    </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </article>
-        </div>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <script>
-        $(function(){
-            $(".toggle").on("click", function(){
-                if($(".menu").hasClass("active")){
-                    $(".menu").removeClass("active");
-                    $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
-                } else {
-                    $(".menu").addClass("active");
-                    $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
-                }
-            })
-        })
-    </script>
-</body>
-</html>            
+    </footer>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ 
+     <script>
+         $(function(){
+             $(".toggle").on("click", function(){
+                 if($(".menu").hasClass("active")){
+                     $(".menu").removeClass("active");
+                     $(this).find("a").html("<ion-icon name='menu-outline'></ion-icon>");
+                 } else {
+                     $(".menu").addClass("active");
+                     $(this).find("a").html("<ion-icon name='close-outline'></ion-icon>");
+                 }
+             })
+         })
+     </script>
+ </body>
+ </html>
