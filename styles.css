@@ -10,12 +10,14 @@ body{
     font-family: "Gilda Display", serif;
     font-weight: 600;
     font-style: normal;
+    background: #fff;
 }
 
 a, a:hover{
     text-decoration: none;
 }
 
+/* -------------------------------- Navigation Bar -------------------------------- */
 nav{
     background: rgb(230, 224, 217);
     padding: 5px 20px;
@@ -102,12 +104,7 @@ nav a:hover{
         right: 20px;
     }
 }
-
-h1, h2 {
-    text-align: center;
-    margin: 20px 0;
-    color: rgb(50, 63, 47);
-}
+/* -------------------------------- Navigation Bar -------------------------------- */
 /* -------------------------------- Home -------------------------------- */
 .video-container{
     width: 100%;
