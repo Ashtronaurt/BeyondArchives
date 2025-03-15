@@ -213,6 +213,16 @@ nav a:hover{
     .footer-col .social-links {
         justify-content: center;
     }
+    
+    .footer-bottom {
+        font-size: 12px; /* Slightly smaller text for smaller screens */
+        padding: 8px; /* Reduce padding */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
 }
 /* ------------------------------ Footer Styles -------------------------------*/
 
