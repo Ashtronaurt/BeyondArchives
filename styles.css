@@ -724,11 +724,10 @@ h1 {
     margin: 30px auto;
     width: 80%;
     max-width: 1000px;
-    background: rgb(230, 224, 217);
+    background: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: white; 
 }
 
 .contact-info {
@@ -775,6 +774,7 @@ h1 {
     color: #3b250c;
 }
 
+
 .contact-form {
     flex: 1;
     padding-left: 20px;
@@ -796,6 +796,20 @@ h1 {
     border-radius: 5px;
 }
 
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1000px;
+    background: rgb(230, 224, 217);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: white; 
+}
+
 .contact-form button {
     background-color: #020202;
     color: white;
@@ -812,7 +826,7 @@ h1 {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
     transform: scale(1.05);
-    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.3);/
 }
 
 .contact-form button:active {
