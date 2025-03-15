@@ -109,6 +109,7 @@ nav a:hover{
 .footer {
     background-color: rgb(50, 63, 47);
     padding: 70px 0;
+    padding-bottom: 20px;
 }
 
 .footer-content {
@@ -183,6 +184,7 @@ nav a:hover{
 .footer-bottom {
     text-align: center;
     padding: 10px;
+    margin-top: 100px;
     color: white;
     font-size: 14px;
     display: flex;
