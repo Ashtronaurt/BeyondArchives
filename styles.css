@@ -895,6 +895,49 @@ h1 {
         min-height: 200px;
     }
 }
+@media (max-width: 768px) {
+    .contact-form {
+        width: 100%;
+        padding: 0;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 8px;
+    }
+
+    .contact-form textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    .contact-form button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-form input,
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 13px;
+    }
+
+    .contact-form button {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
 
 
 
