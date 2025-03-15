@@ -180,6 +180,19 @@ nav a:hover{
     transition: all 0.5s ease;
 }
 
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #222; 
+    color: white;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
 .footer-col .social-links a:hover {
     color: rgb(50, 63, 47);
     background-color: #ffffff;
